@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ucapan Apresiasi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .love {
+      font-size: 80px;
+      color: #ff3366;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .love:hover {
+      transform: scale(1.2);
+    }
+
+    .click-text {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
+
+    .question-box, .final-message {
+      display: none;
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      font-size: 18px;
+      color: #333;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: #ff5e78;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e04160;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="love" onclick="startQuestions()">❤️</div>
+    <div class="click-text">Klik aku di sini 💌</div>
+
+    <div id="question-box" class="question-box">
+      <div id="question-text">Apakah kamu bahagia hari ini?</div>
+      <div class="btn-group">
+        <button class="btn" onclick="nextQuestion()">Iya</button>
+      </div>
+    </div>
+
+    <div id="final-message" class="final-message">
+        Gacorr sih... kamu keren banget. Proker Scholarship Chat itu bukan hal kecil, tapi kamu berhasil nyelesain semuanya dengan luar biasa! Mulai dari awal yang penuh tantangan, sampai akhirnya tuntas juga, dan bukan cuma tuntas asal-asalan, tapi beneran impactful. Banyak orang jadi lebih semangat cari beasiswa, lebih percaya diri buat melakukan wawancara, dan itu semua karena kontribusi kamu.
+
+        Nggak semua orang punya niat dan komitmen kayak kamu. Kamu kerja nggak cuma pake tenaga, tapi juga pake hati. Itu yang bikin hasil akhirnya kerasa banget buat orang lain. Dan meskipun mungkin capek, pusing, atau ngerasa nggak dihargai, please inget... ada banyak orang yang terbantu karena kamu, yang dapet semangat baru karena kamu, dan yang jadi lebih dekat sama impian mereka karena Scholarship Chat yang kamu rancang bareng yang lainnya.
+        
+        Pokoknya makasih banget ya. Kamu udah kasih yang terbaik, dan itu layak banget buat dapet apresiasi setinggi-tingginya. Jangan ragu buat bangga sama dirimu sendiri - karena kamu pantas banget. Keep shining, you did something amazing. 💖✨🔥
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "Apakah kamu bahagia hari ini?",
+      "Apakah kamu sudah merasa lega?",
+      "Apakah kamu sudah menyelesaikan proker dengan baik?"
+    ];
+
+    let currentIndex = 0;
+
+    function startQuestions() {
+      document.querySelector('.love').style.display = 'none';
+      document.querySelector('.click-text').style.display = 'none';
+      document.getElementById('question-box').style.display = 'block';
+      document.getElementById('question-text').innerText = questions[currentIndex];
+    }
+
+    function nextQuestion() {
+      currentIndex++;
+      if (currentIndex < questions.length) {
+        document.getElementById('question-text').innerText = questions[currentIndex];
+      } else {
+        document.getElementById('question-box').style.display = 'none';
+        document.getElementById('final-message').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
